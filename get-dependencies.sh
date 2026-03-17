@@ -23,4 +23,11 @@ make-aur-package wxgtk2.8
 make-aur-package libmysqlclient
 
 # If the application needs to be manually built that has to be done down here
+echo "Getting Zod Engine binary..."
+echo "---------------------------------------------------------------"
 wget https://master.dl.sourceforge.net/project/zod/linux_releases/zod_linux-2011-09-06.tar.gz
+mkdir -p ./AppDir/bin
+VERSION=2011-09-06
+echo "$VERSION" > ~/version
+
+bsdtar -xvf zod_linux-${VERSION}.tar.gz -C ./AppDir/bin --strip-components=1
