@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Zod Engine
+GenericName=Real-Time Strategy Game
+Comment=Open source remake of Z by Bitmap Brothers
+Exec=zod_launcher
+Icon=zod-engine
+StartupWMClass=
+Categories=Game;StrategyGame;
+Keywords=Z;RTS;Strategy;Robots;Tanks;
+Terminal=false
