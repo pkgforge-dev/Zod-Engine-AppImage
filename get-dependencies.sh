@@ -7,6 +7,7 @@ ARCH=$(uname -m)
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
+    gcc-libs     \
     libdecor     \
     sdl12-compat \
     sdl_image    \
