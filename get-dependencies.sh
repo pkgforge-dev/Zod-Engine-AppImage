@@ -16,4 +16,4 @@ get-debloated-pkgs --add-common --prefer-nano
 #make-aur-package PACKAGENAME
 
 # If the application needs to be manually built that has to be done down here
-wget https://master.dl.sourceforge.net/project/zod/linux_releases/zod_linux-2011-09-06.tar.gz?viasf=1
+wget https://master.dl.sourceforge.net/project/zod/linux_releases/zod_linux-2011-09-06.tar.gz
