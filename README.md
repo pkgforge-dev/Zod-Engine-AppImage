@@ -13,7 +13,7 @@
 
 | Latest Stable Release | Upstream URL |
 | :---: | :---: |
-| [Click here](https://github.com/pkgforge-dev/Zod-Engine-AppImage/releases/latest) | [Click here](https://sourceforge.net/projects/zod) |
+| [Click here](https://github.com/pkgforge-dev/Zod-Engine-AppImage/releases/latest) | [Click here](https://sourceforge.net/u/digitalus/zod/ci/default/tree) |
 
 </div>
 
