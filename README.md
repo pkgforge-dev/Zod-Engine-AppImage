@@ -7,7 +7,7 @@
 [![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/Zod-Engine-AppImage)](https://github.com/pkgforge-dev/Zod-Engine-AppImage/releases/latest)
 
 <p align="center">
-  <img src="https://github.com/Link4Electronics/Zod-Engine-AppImage/blob/main/" width="128" />
+  <img src="https://github.com/Link4Electronics/Zod-Engine-AppImage/blob/main/AppDir/zod-engine.png" width="128" />
 </p>
 
 
