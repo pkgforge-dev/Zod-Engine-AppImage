@@ -40,7 +40,7 @@ mkdir build && cd build
 cmake  .. -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc)
 mv -v zod_map_editor zod ../../AppDir/bin
-mv -v ../game/* ../../AppDir
+mv -v ../game/* ../../AppDir/bin
 cd ../.. && rm -rf digitalus-zod
 
 mkdir -p ./zodsrc
