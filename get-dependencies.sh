@@ -10,6 +10,7 @@ pacman -Syu --noconfirm \
     cmake            \
     gtk3             \
     libdecor         \
+    mariadb          \
     mercurial        \
     openmp           \
     sdl12-compat     \
@@ -24,7 +25,7 @@ echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
 # Comment this out if you need an AUR package
-make-aur-package mysql
+#make-aur-package mysql
 
 # If the application needs to be manually built that has to be done down here
 echo "Getting Zod Engine binary..."
