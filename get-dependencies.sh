@@ -16,6 +16,7 @@ pacman -Syu --noconfirm \
     gcc-libs       \
     lib32-gcc-libs \
     libdecor       \
+    mercurial      \
     openmp         \
     sdl12-compat   \
     sdl_image      \
@@ -37,20 +38,18 @@ echo "---------------------------------------------------------------"
 VERSION=2011-09-06
 echo "$VERSION" > ~/version
 wget https://master.dl.sourceforge.net/project/zod/linux_releases/zod_linux-${VERSION}.tar.gz
-https://sourceforge.net/code-snapshots/hg/u/u/u/digitalus/zod/u-digitalus-zod-fbbd44b71cf36b8567512e67a72ba38a6b35141f.zip
+hg clone http://hg.code.sf.net/u/digitalus/zod digitalus-zod
 
 mkdir -p ./AppDir/bin
-mkdir -p ./zodsrc
-tar -xvf u-digitalus-zod-fbbd44b71cf36b8567512e67a72ba38a6b35141f.zip -C ./zodsrc --strip-components=1
-cd zodsrc
+cd digitalus-zod
 mkdir build && cd build
 cmake  .. -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc)
 mv -v zod_map_editor zod ../../AppDir/bin
 mv -v ../game/* ../../AppDir
-cd ../.. && rm -rf zodsrc
-mkdir -p ./zodsrc
+cd ../.. && rm -rf digitalus-zod
 
+mkdir -p ./zodsrc
 bsdtar -xvf zod_linux-${VERSION}.tar.gz -C ./zodsrc --strip-components=1
 cd ./zodsrc/zod_launcher_src
 sed -i "s/check.replace(i,1,1,'_');/check.replace(i,1,1, (wxUniChar)'_');/g" zod_launcherFrm.cpp
