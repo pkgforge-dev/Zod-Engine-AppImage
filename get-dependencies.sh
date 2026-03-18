@@ -6,11 +6,6 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-tee -a /etc/pacman.conf <<EOF
-
-[multilib]
-Include = /etc/pacman.d/mirrorlist
-EOF
 pacman -Syu --noconfirm \
     cmake            \
     gtk3             \
