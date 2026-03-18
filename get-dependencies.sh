@@ -7,8 +7,10 @@ ARCH=$(uname -m)
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
+    cmake        \
     gcc-libs     \
     libdecor     \
+    openmp       \
     sdl12-compat \
     sdl_image    \
     sdl_mixer    \
@@ -32,6 +34,19 @@ wget https://master.dl.sourceforge.net/project/zod/linux_releases/zod_linux-${VE
 https://sourceforge.net/code-snapshots/hg/u/u/u/digitalus/zod/u-digitalus-zod-fbbd44b71cf36b8567512e67a72ba38a6b35141f.zip
 
 mkdir -p ./AppDir/bin
-bsdtar -xvf zod_linux-${VERSION}.tar.gz -C ./AppDir/bin --strip-components=1
-rm -rf ./AppDir/bin/zod_launcher_src
-rm -rf ./AppDir/bin/zod_src
+mkdir -p ./zodsrc
+tar -xvf u-digitalus-zod-fbbd44b71cf36b8567512e67a72ba38a6b35141f.zip -C ./zodsrc --strip-components=1
+cd zodsrc
+mkdir build && cd build
+cmake  .. -DCMAKE_BUILD_TYPE=Release
+make -j$(nproc)
+mv -v zod_map_editor zod ../../AppDir/bin
+mv -v ../game/* ../../AppDir
+cd ../.. && rm -rf zodsrc
+mkdir -p ./zodsrc
+
+bsdtar -xvf zod_linux-${VERSION}.tar.gz -C ./zodsrc --strip-components=1
+cd ./zodsrc/zod_launcher_src
+sed -i "s/check.replace(i,1,1,'_');/check.replace(i,1,1, (wxUniChar)'_');/g" zod_launcherFrm.cpp
+make -j$(nproc)
+mv -v zod_launcher ../../AppDir/bin
