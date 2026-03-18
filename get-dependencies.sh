@@ -6,14 +6,20 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
+tee -a /etc/pacman.conf <<EOF
+
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+EOF
 pacman -Syu --noconfirm \
-    cmake        \
-    gcc-libs     \
-    libdecor     \
-    openmp       \
-    sdl12-compat \
-    sdl_image    \
-    sdl_mixer    \
+    cmake          \
+    gcc-libs       \
+    lib32-gcc-libs \
+    libdecor       \
+    openmp         \
+    sdl12-compat   \
+    sdl_image      \
+    sdl_mixer      \
     sdl_ttf
 
 echo "Installing debloated packages..."
