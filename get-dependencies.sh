@@ -19,14 +19,8 @@ echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
 # Comment this out if you need an AUR package
-#make-aur-package gconf
 make-aur-package gtk2
-#make-aur-package libvisual
-#make-aur-package gstreamer0.10
-#make-aur-package gstreamer0.10-base
-#make-aur-package gstreamer0.10-base-plugins
-#make-aur-package wxgtk2.8
-make-aur-package wxwidgets2.8-light
+make-aur-package wxgtk2.8-light
 make-aur-package libmysqlclient
 
 # If the application needs to be manually built that has to be done down here
@@ -35,6 +29,7 @@ echo "---------------------------------------------------------------"
 VERSION=2011-09-06
 echo "$VERSION" > ~/version
 wget https://master.dl.sourceforge.net/project/zod/linux_releases/zod_linux-${VERSION}.tar.gz
+https://sourceforge.net/code-snapshots/hg/u/u/u/digitalus/zod/u-digitalus-zod-fbbd44b71cf36b8567512e67a72ba38a6b35141f.zip
 
 mkdir -p ./AppDir/bin
 bsdtar -xvf zod_linux-${VERSION}.tar.gz -C ./AppDir/bin --strip-components=1
