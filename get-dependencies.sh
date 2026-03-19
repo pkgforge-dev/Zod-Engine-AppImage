@@ -35,8 +35,7 @@ wget https://master.dl.sourceforge.net/project/zod/linux_releases/zod_linux-${VE
 hg clone http://hg.code.sf.net/p/zod/zod_engine zod_engine
 
 mkdir -p ./AppDir/bin
-cd zod_engine
-cd src
+cd zod_engine/src
 sed -i '1i #include <ctime>' common.cpp
 make -j$(nproc)
 mv -v zod ../../AppDir/bin
