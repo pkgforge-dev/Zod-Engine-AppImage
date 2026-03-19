@@ -7,10 +7,9 @@ ARCH=$(uname -m)
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
-    cmake            \
     gtk3             \
     libdecor         \
-    mariadb          \
+    mariadb-libs     \
     mercurial        \
     openmp           \
     sdl12-compat     \
@@ -33,16 +32,17 @@ echo "---------------------------------------------------------------"
 VERSION=2011-09-06
 echo "$VERSION" > ~/version
 wget https://master.dl.sourceforge.net/project/zod/linux_releases/zod_linux-${VERSION}.tar.gz
-hg clone http://hg.code.sf.net/u/digitalus/zod digitalus-zod
+hg clone http://hg.code.sf.net/p/zod/zod_engine zod_engine
 
 mkdir -p ./AppDir/bin
-cd digitalus-zod
-mkdir build && cd build
-cmake  .. -DCMAKE_BUILD_TYPE=Release
+cd zod_engine/src
+sed -i '1i #include <ctime>' common.cpp
 make -j$(nproc)
-mv -v zod_map_editor zod ../../AppDir/bin
-mv -v ../game/* ../../AppDir/bin
-cd ../.. && rm -rf digitalus-zod
+mv -v zod ../../AppDir/bin
+cd ..
+mv -v assets blank_maps ../AppDir/bin
+find . -maxdepth 1 -type f \( -name "*.map" -o -name "*.txt" \) -exec mv -t ../AppDir/bin/ {} +
+cd .. && rm -rf zod_engine
 
 mkdir -p ./zodsrc
 bsdtar -xvf zod_linux-${VERSION}.tar.gz -C ./zodsrc --strip-components=1
