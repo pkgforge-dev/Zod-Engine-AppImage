@@ -22,7 +22,7 @@ echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
-echo "Getting Zod Engine binary..."
+echo "Building Zod Engine..."
 echo "---------------------------------------------------------------"
 VERSION=2011-09-06
 echo "$VERSION" > ~/version
