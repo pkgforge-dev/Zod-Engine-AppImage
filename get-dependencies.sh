@@ -7,7 +7,6 @@ ARCH=$(uname -m)
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
-    libdecor         \
     mariadb-libs     \
     mercurial        \
     openmp           \
@@ -20,7 +19,7 @@ pacman -Syu --noconfirm \
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs --add-common --prefer-nano
+get-debloated-pkgs --add-common --prefer-nano libdecor-mini
 
 echo "Building Zod Engine..."
 echo "---------------------------------------------------------------"
